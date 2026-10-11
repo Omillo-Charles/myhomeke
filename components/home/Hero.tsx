@@ -33,11 +33,11 @@ export default function Hero() {
 
             <div className="mx-auto w-full max-w-[1440px] px-5 pb-40 sm:px-8 sm:pb-44 lg:px-14 lg:pb-48">
                 <div className="max-w-[700px]">
-                    <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-200 sm:text-xs">
+                    <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-normal text-gold-200 sm:text-xs md:tracking-[0.2em]">
                         <span className="h-px w-8 bg-gold-300" />
                         Find a home with ease!
                     </p>
-                    <h1 id="hero-title" className="max-w-[680px] font-outfit text-[clamp(2.9rem,7vw,5.8rem)] font-medium leading-[0.99] tracking-[-0.04em] text-white [text-wrap:balance]">
+                    <h1 id="hero-title" className="max-w-[680px] font-outfit text-[clamp(2.9rem,7vw,5.8rem)] font-medium leading-[0.99] tracking-normal text-white [text-wrap:balance] md:tracking-[-0.04em]">
                         A home that feels like <span className="text-gold-200">yours.</span>
                     </h1>
                     <p className="mt-6 max-w-[540px] text-sm leading-6 text-white/85 sm:text-base sm:leading-7">
@@ -60,11 +60,11 @@ export default function Hero() {
                     <div className="min-w-[820px] rounded-md border border-white/70 bg-white p-2 text-ink shadow-[0_24px_70px_-28px_rgba(0,0,0,0.45)] sm:p-3 lg:min-w-0 lg:p-4">
                         <div className="grid grid-cols-[minmax(200px,1.2fr)_minmax(190px,1fr)_minmax(190px,1fr)_auto] items-center gap-0">
                             <label className="flex min-h-[58px] flex-col justify-center px-3 sm:px-5">
-                                <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-neutral-700">Location</span>
+                                <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-normal text-neutral-700 md:tracking-[0.08em]">Location</span>
                                 <input aria-label="Preferred location" type="text" placeholder="Where would you like to live?" className="min-w-0 bg-transparent text-[13px] text-ink outline-none placeholder:text-neutral-400" />
                             </label>
                             <label className="flex min-h-[58px] flex-col justify-center border-l border-border px-3 sm:px-5">
-                                <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-neutral-700">Property type</span>
+                                <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-normal text-neutral-700 md:tracking-[0.08em]">Property type</span>
                                 <span className="flex items-center justify-between gap-3">
                                     <select aria-label="Property type" defaultValue="" className="w-full appearance-none bg-transparent text-[13px] text-neutral-600 outline-none">
                                         <option value="" disabled>Any property type</option>
@@ -76,7 +76,7 @@ export default function Hero() {
                                 </span>
                             </label>
                             <label className="flex min-h-[58px] flex-col justify-center border-l border-border px-3 sm:px-5">
-                                <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-neutral-700">Budget</span>
+                                <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-normal text-neutral-700 md:tracking-[0.08em]">Budget</span>
                                 <span className="flex items-center justify-between gap-3">
                                     <select aria-label="Budget range" defaultValue="" className="w-full appearance-none bg-transparent text-[13px] text-neutral-600 outline-none">
                                         <option value="" disabled>Select your budget</option>

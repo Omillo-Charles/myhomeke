@@ -53,8 +53,8 @@ export default function Footer() {
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-900 via-navy-900/90 to-navy-900/65" />
                 <div className="mx-auto flex max-w-[1440px] flex-col gap-7 px-5 py-10 sm:px-8 sm:py-12 lg:flex-row lg:items-center lg:justify-between lg:px-14 lg:py-14">
                     <div className="max-w-xl">
-                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Your next chapter starts here</p>
-                        <h2 id="footer-cta-title" className="font-outfit text-2xl font-medium tracking-[-0.02em] text-white sm:text-3xl">
+                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-normal text-gold-300 md:tracking-[0.18em]">Your next chapter starts here</p>
+                        <h2 id="footer-cta-title" className="font-outfit text-2xl font-medium tracking-normal text-white md:tracking-[-0.02em] sm:text-3xl">
                             Ready to find a place to call home?
                         </h2>
                         <p className="mt-2 text-sm leading-6 text-white/75">Explore considered homes and find the right fit for the way you live.</p>
@@ -76,8 +76,8 @@ export default function Footer() {
                         <a href="#home" className="inline-flex items-center gap-2.5" aria-label="Jade Apartments home">
                             <Image src="/logoassets/jadelogo.png" alt="" width={64} height={64} className="size-11 object-contain" />
                             <span className="flex flex-col leading-none">
-                                <span className="font-outfit text-lg font-semibold tracking-[0.01em]">Jade</span>
-                                <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.18em] text-white/65">Apartments</span>
+                                <span className="font-outfit text-lg font-semibold tracking-normal md:tracking-[0.01em]">Jade</span>
+                                <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/65 md:tracking-[0.18em]">Apartments</span>
                             </span>
                         </a>
                         <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">
@@ -101,7 +101,7 @@ export default function Footer() {
 
                     {footerGroups.map(({ title, links }) => (
                         <nav key={title} aria-label={title}>
-                            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-gold-300">{title}</h3>
+                            <h3 className="mb-4 text-xs font-semibold uppercase tracking-normal text-gold-300 md:tracking-[0.12em]">{title}</h3>
                             <ul className="space-y-3">
                                 {links.map(({ label, href }) => (
                                     <li key={label}>
@@ -113,7 +113,7 @@ export default function Footer() {
                     ))}
 
                     <div>
-                        <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-gold-300">Get in touch</h3>
+                        <h3 className="mb-4 text-xs font-semibold uppercase tracking-normal text-gold-300 md:tracking-[0.12em]">Get in touch</h3>
                         <p className="max-w-xs text-sm leading-6 text-white/70">Questions about finding your next home? Our team is ready to help.</p>
                         <a href="/contact" className="mt-3 inline-flex text-sm font-medium text-white underline decoration-gold-400 underline-offset-4 transition-colors hover:text-gold-200">Contact Jade</a>
                     </div>

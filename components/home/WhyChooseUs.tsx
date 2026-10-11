@@ -69,8 +69,8 @@ export default function WhyChooseUs() {
             <div className="mx-auto max-w-[1440px]">
                 <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
                     <div>
-                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-jade-700">Why choose Jade</p>
-                        <h2 id="why-choose-us-title" className="max-w-2xl font-outfit text-3xl font-medium leading-tight tracking-[-0.035em] text-ink sm:text-4xl lg:text-[2.75rem]">
+                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-normal text-jade-700 md:tracking-[0.18em]">Why choose Jade</p>
+                        <h2 id="why-choose-us-title" className="max-w-2xl font-outfit text-3xl font-medium leading-tight tracking-normal text-ink md:tracking-[-0.035em] sm:text-4xl lg:text-[2.75rem]">
                             Your trusted partner for every real estate journey
                         </h2>
                     </div>
@@ -86,9 +86,9 @@ export default function WhyChooseUs() {
                                 <span className="flex size-11 items-center justify-center rounded-md bg-jade-50 text-jade-700 transition-colors group-hover:bg-gold-50 group-hover:text-gold-700">
                                     <BenefitIcon icon={icon} />
                                 </span>
-                                <span className="font-outfit text-xs font-medium tracking-[0.08em] text-neutral-400">{number}</span>
+                                <span className="font-outfit text-xs font-medium tracking-normal text-neutral-400 md:tracking-[0.08em]">{number}</span>
                             </div>
-                            <h3 className="mt-7 font-outfit text-lg font-semibold tracking-[-0.015em] text-ink">{title}</h3>
+                            <h3 className="mt-7 font-outfit text-lg font-semibold tracking-normal text-ink md:tracking-[-0.015em]">{title}</h3>
                             <p className="mt-2 text-sm leading-6 text-neutral-600">{description}</p>
                         </article>
                     ))}
