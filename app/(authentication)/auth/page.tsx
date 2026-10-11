@@ -3,16 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import AuthShowcase from "@/components/auth/AuthShowcase";
 import AuthForm from "@/components/auth/AuthForm";
+import { BRAND_NAME, BRAND_WORDMARK } from "@/components/config/brand";
 
 export const metadata: Metadata = {
-    title: "Your Account | Jade Apartments",
-    description: "Sign in or create your Jade Apartments account.",
+    title: `Your Account | ${BRAND_NAME}`,
+    description: `Sign in or create your ${BRAND_NAME} account.`,
 };
 
 export default function AuthPage() {
     return (
         <main className="grid min-h-svh bg-neutral-50 lg:grid-cols-2">
-            <section aria-label="Jade Apartments welcome" className="relative isolate flex min-h-[310px] flex-col justify-between overflow-hidden bg-navy-900 px-6 py-6 text-white sm:min-h-[390px] sm:px-10 sm:py-8 lg:min-h-svh lg:px-12 lg:py-10 xl:px-16">
+            <section aria-label={`${BRAND_NAME} welcome`} className="relative isolate flex min-h-[310px] flex-col justify-between overflow-hidden bg-navy-900 px-6 py-6 text-white sm:min-h-[390px] sm:px-10 sm:py-8 lg:min-h-svh lg:px-12 lg:py-10 xl:px-16">
                 <Image
                     src="/images/authimage.png"
                     alt="A contemporary home warmly lit at dusk"
@@ -23,11 +24,11 @@ export default function AuthPage() {
                 />
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-900/75 via-navy-900/10 to-navy-900/90" />
 
-                <Link href="/" className="inline-flex w-fit items-center gap-2.5" aria-label="Jade Apartments home">
+                <Link href="/" className="inline-flex w-fit items-center gap-2.5" aria-label={`${BRAND_NAME} home`}>
                     <Image src="/logoassets/jadelogo.png" alt="" width={56} height={56} priority className="size-11 object-contain" />
                     <span className="flex flex-col leading-none">
-                        <span className="font-outfit text-lg font-semibold tracking-normal md:tracking-[0.01em]">Jade</span>
-                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/80 md:tracking-[0.18em]">Apartments</span>
+                        <span className="font-outfit text-lg font-semibold tracking-normal md:tracking-[0.01em]">{BRAND_WORDMARK.primary}</span>
+                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/80 md:tracking-[0.18em]">{BRAND_WORDMARK.secondary}</span>
                     </span>
                 </Link>
 

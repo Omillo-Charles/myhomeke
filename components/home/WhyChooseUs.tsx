@@ -1,3 +1,5 @@
+import { BRAND_NAME } from "@/components/config/brand";
+
 const benefits = [
     {
         number: "01",
@@ -69,7 +71,7 @@ export default function WhyChooseUs() {
             <div className="mx-auto max-w-[1440px]">
                 <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
                     <div>
-                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-normal text-jade-700 md:tracking-[0.18em]">Why choose Jade</p>
+                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-normal text-jade-700 md:tracking-[0.18em]">Why choose {BRAND_NAME}</p>
                         <h2 id="why-choose-us-title" className="max-w-2xl font-outfit text-3xl font-medium leading-tight tracking-normal text-ink md:tracking-[-0.035em] sm:text-4xl lg:text-[2.75rem]">
                             Your trusted partner for every real estate journey
                         </h2>

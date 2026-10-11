@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { BRAND_NAME } from "@/components/config/brand";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | Jade Apartments",
-    description: "Learn how Jade Apartments handles personal information when you use our website.",
+    title: `Privacy Policy | ${BRAND_NAME}`,
+    description: `Learn how ${BRAND_NAME} handles personal information when you use our website.`,
 };
 
 const sections = [
     {
         title: "Information you provide",
         paragraphs: [
-            "If you contact Jade Apartments or request information about a property, we may receive the details you choose to share, such as your name, email address, phone number, preferences, and the contents of your message.",
+            `If you contact ${BRAND_NAME} or request information about a property, we may receive the details you choose to share, such as your name, email address, phone number, preferences, and the contents of your message.`,
             "Please do not send sensitive personal information unless it is necessary for your request.",
         ],
     },
@@ -40,7 +41,7 @@ const sections = [
     {
         title: "Your choices and rights",
         paragraphs: [
-            "Depending on where you live, you may have rights to access, correct, delete, or restrict certain uses of your personal information. You may ask us about information you have provided or withdraw a request by contacting Jade Apartments through our contact page.",
+            `Depending on where you live, you may have rights to access, correct, delete, or restrict certain uses of your personal information. You may ask us about information you have provided or withdraw a request by contacting ${BRAND_NAME} through our contact page.`,
         ],
     },
     {
@@ -62,7 +63,7 @@ export default function PrivacyPolicyPage() {
         <article>
             <header className="bg-navy-900 px-5 pb-10 pt-32 text-white sm:px-8 sm:pb-12 sm:pt-36 lg:px-14">
                 <div className="mx-auto max-w-4xl">
-                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Jade Apartments</p>
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">{BRAND_NAME}</p>
                     <h1 className="font-outfit text-4xl font-medium tracking-[-0.035em] sm:text-5xl">Privacy Policy</h1>
                     <p className="mt-4 text-sm text-white/70">Last updated: October 11, 2026</p>
                 </div>
@@ -70,7 +71,7 @@ export default function PrivacyPolicyPage() {
 
             <div className="mx-auto w-full max-w-4xl px-5 py-10 sm:px-8 sm:py-14 lg:px-0">
                 <p className="mb-8 text-base leading-7 text-neutral-700">
-                    This policy explains how Jade Apartments may handle personal information when you visit this website or contact us. It is written for the website’s current informational use and should be updated if our services or data practices change.
+                    This policy explains how {BRAND_NAME} may handle personal information when you visit this website or contact us. It is written for the website’s current informational use and should be updated if our services or data practices change.
                 </p>
                 <div className="divide-y divide-border">
                     {sections.map(({ title, paragraphs }) => (
@@ -81,7 +82,7 @@ export default function PrivacyPolicyPage() {
                             ))}
                             {title === "Your choices and rights" && (
                                 <p className="mt-3 text-sm leading-7 text-neutral-700">
-                                    <a href="/contact" className="font-medium text-jade-700 underline decoration-gold-500 underline-offset-4 hover:text-jade-900">Contact Jade Apartments</a>
+                                    <a href="/contact" className="font-medium text-jade-700 underline decoration-gold-500 underline-offset-4 hover:text-jade-900">Contact {BRAND_NAME}</a>
                                 </p>
                             )}
                         </section>

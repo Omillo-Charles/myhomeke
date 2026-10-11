@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BRAND_NAME, BRAND_WORDMARK } from "@/components/config/brand";
 import NavbarScrollEffect from "@/components/ui/NavbarScrollEffect";
 
 const navigation = [
@@ -53,7 +54,7 @@ export default function Navbar() {
         <header id="site-navbar" className="sticky top-0 z-30 border-b border-white/15 bg-black/10 text-white backdrop-blur-[2px] transition-[background-color,border-color,box-shadow] duration-300">
             <NavbarScrollEffect />
             <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:h-[88px] lg:px-14">
-                <Link href="/" className="group flex shrink-0 items-center gap-1.5" aria-label="Jade Apartments home">
+                <Link href="/" className="group flex shrink-0 items-center gap-1.5" aria-label={`${BRAND_NAME} home`}>
                     <Image
                         src="/logoassets/jadelogo.png"
                         alt=""
@@ -63,8 +64,8 @@ export default function Navbar() {
                         className="size-10 object-contain transition-transform group-hover:scale-105 sm:size-12"
                     />
                     <span className="flex flex-col leading-none">
-                        <span className="font-outfit text-[17px] font-semibold tracking-normal md:tracking-[0.01em] sm:text-[19px]">Jade</span>
-                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/75 md:tracking-[0.18em] sm:text-[10px]">Apartments</span>
+                        <span className="font-outfit text-[17px] font-semibold tracking-normal md:tracking-[0.01em] sm:text-[19px]">{BRAND_WORDMARK.primary}</span>
+                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/75 md:tracking-[0.18em] sm:text-[10px]">{BRAND_WORDMARK.secondary}</span>
                     </span>
                 </Link>
 

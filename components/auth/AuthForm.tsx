@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { BRAND_NAME } from "@/components/config/brand";
 
 function GoogleIcon() {
     return (
@@ -22,7 +23,7 @@ export default function AuthForm() {
         <div className="w-full max-w-[410px] pt-8">
             <div className="mb-8">
                 <p className="text-xs font-semibold uppercase tracking-normal text-jade-700 md:tracking-[0.14em]">
-                    {isSignUp ? "Join Jade Apartments" : "Welcome to Jade"}
+                    {isSignUp ? `Join ${BRAND_NAME}` : `Welcome to ${BRAND_NAME}`}
                 </p>
                 <h2 id="auth-form-title" className="mt-2 font-outfit text-3xl font-semibold tracking-normal text-ink md:tracking-[-0.03em] sm:text-[2.15rem]">
                     {isSignUp ? "Create your account" : "Welcome back"}

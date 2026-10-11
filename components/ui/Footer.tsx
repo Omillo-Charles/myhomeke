@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { BRAND_NAME, BRAND_WORDMARK } from "@/components/config/brand";
 
 const footerGroups = [
     {
@@ -6,7 +8,7 @@ const footerGroups = [
         links: [
             { label: "Home", href: "#home" },
             { label: "Find a property", href: "/properties" },
-            { label: "About Jade", href: "/about" },
+            { label: `About ${BRAND_NAME}`, href: "/about" },
         ],
     },
     {
@@ -73,24 +75,24 @@ export default function Footer() {
             <div className="border-t border-white/10">
                 <div className="mx-auto grid max-w-[1440px] gap-9 px-5 py-10 sm:grid-cols-2 sm:px-8 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12 lg:px-14 lg:py-12">
                     <div>
-                        <a href="#home" className="inline-flex items-center gap-2.5" aria-label="Jade Apartments home">
+                        <Link href="/" className="inline-flex items-center gap-2.5" aria-label={`${BRAND_NAME} home`}>
                             <Image src="/logoassets/jadelogo.png" alt="" width={64} height={64} className="size-11 object-contain" />
                             <span className="flex flex-col leading-none">
-                                <span className="font-outfit text-lg font-semibold tracking-normal md:tracking-[0.01em]">Jade</span>
-                                <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/65 md:tracking-[0.18em]">Apartments</span>
+                                <span className="font-outfit text-lg font-semibold tracking-normal md:tracking-[0.01em]">{BRAND_WORDMARK.primary}</span>
+                                <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/65 md:tracking-[0.18em]">{BRAND_WORDMARK.secondary}</span>
                             </span>
-                        </a>
+                        </Link>
                         <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">
                             Thoughtfully selected homes, with local guidance to make your next move feel effortless.
                         </p>
-                        <nav aria-label="Follow Jade Apartments" className="mt-5 flex items-center gap-2">
+                        <nav aria-label={`Follow ${BRAND_NAME}`} className="mt-5 flex items-center gap-2">
                             {socialLinks.map(({ label, href, icon }) => (
                                 <a
                                     key={label}
                                     href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label={`Jade Apartments on ${label}`}
+                                    aria-label={`${BRAND_NAME} on ${label}`}
                                     className="flex size-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-gold-300 hover:bg-white/10 hover:text-gold-200"
                                 >
                                     <SocialIcon icon={icon} />
@@ -115,14 +117,14 @@ export default function Footer() {
                     <div>
                         <h3 className="mb-4 text-xs font-semibold uppercase tracking-normal text-gold-300 md:tracking-[0.12em]">Get in touch</h3>
                         <p className="max-w-xs text-sm leading-6 text-white/70">Questions about finding your next home? Our team is ready to help.</p>
-                        <a href="/contact" className="mt-3 inline-flex text-sm font-medium text-white underline decoration-gold-400 underline-offset-4 transition-colors hover:text-gold-200">Contact Jade</a>
+                        <a href="/contact" className="mt-3 inline-flex text-sm font-medium text-white underline decoration-gold-400 underline-offset-4 transition-colors hover:text-gold-200">Contact {BRAND_NAME}</a>
                     </div>
                 </div>
             </div>
 
             <div className="border-t border-white/10">
                 <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-5 py-4 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-14">
-                    <p>© 2026 Jade Apartments. All rights reserved.</p>
+                    <p>© 2026 {BRAND_NAME}. All rights reserved.</p>
                     <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                         <a href="/privacy-policy" className="transition-colors hover:text-white">Privacy Policy</a>
                         <a href="/terms-of-service" className="transition-colors hover:text-white">Terms of Service</a>

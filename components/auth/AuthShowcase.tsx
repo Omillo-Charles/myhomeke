@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BRAND_NAME } from "@/components/config/brand";
 
 const slides = [
     {
         eyebrow: "A place to call your own",
         title: "Find a home that feels like yours.",
-        description: "Discover a more considered way to find your next home, with Jade Apartments by your side.",
+        description: `Discover a more considered way to find your next home, with ${BRAND_NAME} by your side.`,
     },
     {
         eyebrow: "A smoother move",
@@ -16,7 +17,7 @@ const slides = [
     {
         eyebrow: "Your next chapter",
         title: "Find the space for what comes next.",
-        description: "From the first search to settling in, Jade Apartments is here to make finding home feel easier.",
+        description: `From the first search to settling in, ${BRAND_NAME} is here to make finding home feel easier.`,
     },
 ] as const;
 
@@ -38,7 +39,7 @@ export default function AuthShowcase() {
     const slide = slides[activeSlide];
 
     return (
-        <div aria-roledescription="carousel" aria-label="Discover Jade Apartments" className="mt-14 max-w-xl sm:mt-20 lg:mb-6">
+        <div aria-roledescription="carousel" aria-label={`Discover ${BRAND_NAME}`} className="mt-14 max-w-xl sm:mt-20 lg:mb-6">
             <div aria-live="polite" aria-atomic="true" className="min-h-[174px] sm:min-h-[190px]">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-normal text-gold-200 md:tracking-[0.16em]">
                     {slide.eyebrow}
