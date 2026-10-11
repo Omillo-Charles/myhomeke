@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BRAND_NAME } from "@/components/config/brand";
+import LegalDocument from "@/components/legal/LegalDocument";
 
 export const metadata: Metadata = {
     title: `Privacy Policy | ${BRAND_NAME}`,
@@ -60,35 +61,13 @@ const sections = [
 
 export default function PrivacyPolicyPage() {
     return (
-        <article>
-            <header className="bg-navy-900 px-5 pb-10 pt-32 text-white sm:px-8 sm:pb-12 sm:pt-36 lg:px-14">
-                <div className="mx-auto max-w-4xl">
-                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">{BRAND_NAME}</p>
-                    <h1 className="font-outfit text-4xl font-medium tracking-[-0.035em] sm:text-5xl">Privacy Policy</h1>
-                    <p className="mt-4 text-sm text-white/70">Last updated: October 11, 2026</p>
-                </div>
-            </header>
-
-            <div className="mx-auto w-full max-w-4xl px-5 py-10 sm:px-8 sm:py-14 lg:px-0">
-                <p className="mb-8 text-base leading-7 text-neutral-700">
-                    This policy explains how {BRAND_NAME} may handle personal information when you visit this website or contact us. It is written for the website’s current informational use and should be updated if our services or data practices change.
-                </p>
-                <div className="divide-y divide-border">
-                    {sections.map(({ title, paragraphs }) => (
-                        <section key={title} className="py-6 first:pt-0 last:pb-0">
-                            <h2 className="font-outfit text-xl font-semibold tracking-[-0.015em] text-ink">{title}</h2>
-                            {paragraphs.map((paragraph) => (
-                                <p key={paragraph} className="mt-3 text-sm leading-7 text-neutral-700">{paragraph}</p>
-                            ))}
-                            {title === "Your choices and rights" && (
-                                <p className="mt-3 text-sm leading-7 text-neutral-700">
-                                    <a href="/contact" className="font-medium text-jade-700 underline decoration-gold-500 underline-offset-4 hover:text-jade-900">Contact {BRAND_NAME}</a>
-                                </p>
-                            )}
-                        </section>
-                    ))}
-                </div>
-            </div>
-        </article>
+        <LegalDocument
+            title="Privacy Policy"
+            subtitle="How we collect, use, and protect your information."
+            intro={`This policy explains how ${BRAND_NAME} may handle personal information when you visit this website or contact us. It is written for the website’s current informational use and should be updated if our services or data practices change.`}
+            lastUpdated="October 12, 2026"
+            sections={sections}
+            contactAfterSection="Your choices and rights"
+        />
     );
 }

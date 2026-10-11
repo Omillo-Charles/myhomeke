@@ -28,7 +28,7 @@ const socialLinks = [
     { label: "TikTok", href: "https://www.tiktok.com/", icon: "tiktok" },
 ] as const;
 
-function SocialIcon({ icon }: { icon: (typeof socialLinks)[number]["icon"] }) {
+export function SocialIcon({ icon }: { icon: (typeof socialLinks)[number]["icon"] }) {
     if (icon === "facebook") {
         return <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="size-[18px]"><path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.2V13H10v8h3.4Z" /></svg>;
     }
