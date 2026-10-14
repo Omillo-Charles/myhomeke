@@ -27,20 +27,20 @@ function GeminiSparkIcon() {
 
 export default function DashboardGreeting({ firstName }: DashboardGreetingProps) {
     return (
-        <div className="mb-6 flex items-start justify-between gap-4">
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             {/* Left — greeting text */}
             <div>
-                <h2 className="font-outfit text-xl font-semibold text-ink">
+                <h2 className="font-outfit text-lg font-semibold text-ink sm:text-xl">
                     Good Morning,{" "}
                     <span className="text-jade-700">{firstName}!</span>
                 </h2>
-                <p className="mt-1 text-sm text-neutral-500">
+                <p className="mt-1 text-xs text-neutral-500 sm:text-sm">
                     It&apos;s a great day to stay ahead of your property management goals.
                 </p>
             </div>
 
             {/* Right — Talk to Gemini button with rotating border */}
-            <div className="gemini-ring-wrapper shrink-0">
+            <div className="gemini-ring-wrapper shrink-0 w-fit">
                 <button
                     type="button"
                     aria-label="Talk to Gemini AI assistant"

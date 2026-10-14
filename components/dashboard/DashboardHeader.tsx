@@ -2,6 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useDashboardNav } from "@/components/dashboard/DashboardNavContext";
+
+function MenuIcon() {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className="size-5" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+    );
+}
 
 function BellIcon() {
     return (
@@ -46,22 +55,37 @@ function formatDate(d: Date) {
     }).format(d);
 }
 
-export default function DashboardHeader() {
+interface DashboardHeaderProps {
+    title?: string;
+}
+
+export default function DashboardHeader({ title = "Overview" }: DashboardHeaderProps = {}) {
     const [date, setDate] = useState<string | null>(null);
+    const { toggleMobileNav } = useDashboardNav();
 
     useEffect(() => {
         setDate(formatDate(new Date()));
     }, []);
 
     return (
-        <header className="flex h-[68px] shrink-0 items-center justify-between border-b border-neutral-200 bg-white px-6 lg:px-8">
-            {/* Left — page title */}
-            <h1 className="font-outfit text-xl font-semibold text-ink">Overview</h1>
+        <header className="flex h-[68px] shrink-0 items-center justify-between border-b border-neutral-200 bg-white px-4 sm:px-6 lg:px-8">
+            {/* Left — Hamburger toggle (mobile) + page title */}
+            <div className="flex items-center gap-3 min-w-0">
+                <button
+                    type="button"
+                    onClick={toggleMobileNav}
+                    aria-label="Open navigation menu"
+                    className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-neutral-200 text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-ink lg:hidden"
+                >
+                    <MenuIcon />
+                </button>
+                <h1 className="font-outfit text-lg sm:text-xl font-semibold text-ink truncate">{title}</h1>
+            </div>
 
             {/* Right — date, export, notifications, user */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                 {/* Date badge */}
-                <div className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 sm:flex">
+                <div className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 md:flex">
                     <CalendarIcon />
                     {date ? (
                         <span className="text-xs font-medium text-neutral-600">{date}</span>
@@ -73,10 +97,11 @@ export default function DashboardHeader() {
                 {/* Export button */}
                 <button
                     type="button"
-                    className="flex items-center gap-1.5 rounded-md bg-jade-700 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-jade-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jade-700"
+                    className="flex items-center gap-1.5 rounded-md bg-jade-700 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-jade-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jade-700 sm:px-3.5"
                 >
                     <ExportIcon />
-                    Export Report
+                    <span className="hidden sm:inline">Export Report</span>
+                    <span className="sm:hidden">Export</span>
                 </button>
 
                 {/* Notifications */}

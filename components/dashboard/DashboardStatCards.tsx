@@ -89,7 +89,7 @@ const stats = [
         trendLabel: "+3 from last month",
         trendUp: true,
         chart: <PropertiesBarChart />,
-        link: "/account/properties",
+        link: "/account/dashboard/properties",
     },
     {
         label: "Total Units",
@@ -98,7 +98,7 @@ const stats = [
         trendLabel: "+7 from last month",
         trendUp: true,
         chart: <UnitsLineChart />,
-        link: "/account/properties",
+        link: "/account/dashboard/properties",
     },
     {
         label: "Occupancy Rate",

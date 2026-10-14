@@ -10,18 +10,18 @@ interface PropertyOccupancy {
 }
 
 const properties: PropertyOccupancy[] = [
-    { id: "1", name: "Kilimani Heights",  location: "Kilimani, Nairobi",  totalUnits: 48, occupiedUnits: 44, type: "Apartment"  },
-    { id: "2", name: "Karen Gardens",     location: "Karen, Nairobi",     totalUnits: 20, occupiedUnits: 17, type: "Bungalow"   },
-    { id: "3", name: "Westlands Plaza",   location: "Westlands, Nairobi", totalUnits: 60, occupiedUnits: 51, type: "Apartment"  },
-    { id: "4", name: "Runda Estate",      location: "Runda, Nairobi",     totalUnits: 12, occupiedUnits: 12, type: "Mansion"    },
-    { id: "5", name: "Skyline Tower",     location: "CBD, Nairobi",       totalUnits: 74, occupiedUnits: 58, type: "Penthouse"  },
+    { id: "1", name: "Kilimani Heights", location: "Kilimani, Nairobi", totalUnits: 48, occupiedUnits: 44, type: "Apartment" },
+    { id: "2", name: "Karen Gardens", location: "Karen, Nairobi", totalUnits: 20, occupiedUnits: 17, type: "Bungalow" },
+    { id: "3", name: "Westlands Plaza", location: "Westlands, Nairobi", totalUnits: 60, occupiedUnits: 51, type: "Apartment" },
+    { id: "4", name: "Runda Estate", location: "Runda, Nairobi", totalUnits: 12, occupiedUnits: 12, type: "Mansion" },
+    { id: "5", name: "Skyline Tower", location: "CBD, Nairobi", totalUnits: 74, occupiedUnits: 58, type: "Penthouse" },
 ] as const;
 
 const typeColors: Record<PropertyOccupancy["type"], string> = {
     Apartment: "bg-jade-100 text-jade-700",
-    Bungalow:  "bg-gold-100 text-gold-700",
+    Bungalow: "bg-gold-100 text-gold-700",
     Penthouse: "bg-navy-100 text-navy-700",
-    Mansion:   "bg-neutral-200 text-neutral-700",
+    Mansion: "bg-neutral-200 text-neutral-700",
 };
 
 function getBarColor(pct: number) {
@@ -63,10 +63,10 @@ function OverallDonut({ pct }: { pct: number }) {
 }
 
 export default function DashboardOccupancyBreakdown() {
-    const totalUnits    = properties.reduce((s, p) => s + p.totalUnits, 0);
+    const totalUnits = properties.reduce((s, p) => s + p.totalUnits, 0);
     const totalOccupied = properties.reduce((s, p) => s + p.occupiedUnits, 0);
-    const totalVacant   = totalUnits - totalOccupied;
-    const overallPct    = Math.round((totalOccupied / totalUnits) * 100);
+    const totalVacant = totalUnits - totalOccupied;
+    const overallPct = Math.round((totalOccupied / totalUnits) * 100);
 
     return (
         <section aria-label="Occupancy breakdown" className="rounded-xl border border-neutral-200 bg-white shadow-sm">
@@ -76,7 +76,7 @@ export default function DashboardOccupancyBreakdown() {
                     <h3 className="text-sm font-semibold text-ink">Occupancy Breakdown</h3>
                     <p className="mt-0.5 text-[11px] text-neutral-400">Unit occupancy across all properties</p>
                 </div>
-                <Link href="/account/properties" className="text-[11px] font-semibold text-jade-700 transition-colors hover:text-jade-900">
+                <Link href="/account/dashboard/properties" className="text-[11px] font-semibold text-jade-700 transition-colors hover:text-jade-900">
                     View All →
                 </Link>
             </div>
@@ -102,8 +102,8 @@ export default function DashboardOccupancyBreakdown() {
                 {/* Per-property bars */}
                 <ul role="list" className="flex flex-1 flex-col divide-y divide-neutral-50 px-5 py-2">
                     {properties.map((p) => {
-                        const pct     = Math.round((p.occupiedUnits / p.totalUnits) * 100);
-                        const vacant  = p.totalUnits - p.occupiedUnits;
+                        const pct = Math.round((p.occupiedUnits / p.totalUnits) * 100);
+                        const vacant = p.totalUnits - p.occupiedUnits;
                         const barColor = getBarColor(pct);
 
                         return (

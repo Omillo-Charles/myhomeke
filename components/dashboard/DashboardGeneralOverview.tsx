@@ -69,7 +69,7 @@ export default function DashboardGeneralOverview() {
                     <div className="flex items-center justify-between gap-2">
                         <h3 className="font-outfit text-base font-semibold text-ink">General Overview</h3>
                         <Link
-                            href="/account/properties"
+                            href="/account/dashboard/properties"
                             className="text-[11px] font-semibold text-jade-700 transition-colors hover:text-jade-900"
                         >
                             View All →

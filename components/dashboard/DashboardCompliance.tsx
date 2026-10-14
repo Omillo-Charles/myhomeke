@@ -10,10 +10,10 @@ interface ComplianceItem {
 }
 
 const statusConfig: Record<ComplianceStatus, { label: string; color: string; bg: string; dot: string }> = {
-    ok:      { label: "OK",      color: "text-success", bg: "bg-success/10", dot: "bg-success"  },
-    pending: { label: "Pending", color: "text-warning", bg: "bg-warning/10", dot: "bg-warning"  },
-    overdue: { label: "Overdue", color: "text-danger",  bg: "bg-danger/10",  dot: "bg-danger"   },
-    na:      { label: "N/A",     color: "text-neutral-500", bg: "bg-neutral-100", dot: "bg-neutral-400" },
+    ok: { label: "OK", color: "text-success", bg: "bg-success/10", dot: "bg-success" },
+    pending: { label: "Pending", color: "text-warning", bg: "bg-warning/10", dot: "bg-warning" },
+    overdue: { label: "Overdue", color: "text-danger", bg: "bg-danger/10", dot: "bg-danger" },
+    na: { label: "N/A", color: "text-neutral-500", bg: "bg-neutral-100", dot: "bg-neutral-400" },
 };
 
 function FireIcon() {
@@ -68,12 +68,12 @@ function ElevatorIcon() {
 }
 
 const complianceItems: (ComplianceItem & { icon: React.FC })[] = [
-    { id: "1", label: "Fire Safety",   status: "ok",      lastChecked: "12 Dec 2025", icon: FireIcon       },
-    { id: "2", label: "Water Systems", status: "pending", lastChecked: "30 Nov 2025", icon: DropIcon       },
-    { id: "3", label: "Gas Lines",     status: "overdue", lastChecked: "15 Nov 2025", icon: GasIcon        },
-    { id: "4", label: "Electrical",    status: "ok",      lastChecked: "10 Dec 2025", icon: ElectricalIcon },
-    { id: "5", label: "Plumbing",      status: "ok",      lastChecked: "08 Dec 2025", icon: PlumbingIcon   },
-    { id: "6", label: "Elevators",     status: "na",      lastChecked: "N/A",         icon: ElevatorIcon   },
+    { id: "1", label: "Fire Safety", status: "ok", lastChecked: "12 Dec 2025", icon: FireIcon },
+    { id: "2", label: "Water Systems", status: "pending", lastChecked: "30 Nov 2025", icon: DropIcon },
+    { id: "3", label: "Gas Lines", status: "overdue", lastChecked: "15 Nov 2025", icon: GasIcon },
+    { id: "4", label: "Electrical", status: "ok", lastChecked: "10 Dec 2025", icon: ElectricalIcon },
+    { id: "5", label: "Plumbing", status: "ok", lastChecked: "08 Dec 2025", icon: PlumbingIcon },
+    { id: "6", label: "Elevators", status: "na", lastChecked: "N/A", icon: ElevatorIcon },
 ];
 
 export default function DashboardCompliance() {
@@ -83,12 +83,12 @@ export default function DashboardCompliance() {
     return (
         <section aria-label="Compliance" className="rounded-xl border border-neutral-200 bg-white shadow-sm">
             {/* Header */}
-            <div className="flex items-center justify-between gap-2 border-b border-neutral-100 px-5 py-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-neutral-100 px-5 py-4">
                 <div>
                     <h3 className="text-sm font-semibold text-ink">Compliance</h3>
                     <p className="mt-0.5 text-[11px] text-neutral-400">Monitoring building safety and maintenance</p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
                     {overdueCount > 0 && (
                         <span className="rounded-full bg-danger/10 px-2 py-0.5 text-[11px] font-semibold text-danger">
                             {overdueCount} Overdue
@@ -99,10 +99,7 @@ export default function DashboardCompliance() {
                             {pendingCount} Pending
                         </span>
                     )}
-                    <Link
-                        href="/account/reports"
-                        className="text-[11px] font-semibold text-jade-700 transition-colors hover:text-jade-900"
-                    >
+                    <Link href="/account/reports" className="ml-auto text-[11px] font-semibold text-jade-700 transition-colors hover:text-jade-900">
                         Overview →
                     </Link>
                 </div>

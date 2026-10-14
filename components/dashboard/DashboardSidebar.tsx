@@ -5,8 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BRAND_NAME, BRAND_WORDMARK } from "@/components/config/brand";
+import { useDashboardNav } from "@/components/dashboard/DashboardNavContext";
 
-// ─── Icons ───────────────────────────────────────────────────────────────────
+// Icons
 
 function DashboardIcon() {
     return (
@@ -168,7 +169,7 @@ function LogoutIcon() {
     );
 }
 
-// ─── Nav Data ─────────────────────────────────────────────────────────────────
+// Nav Data
 
 interface NavItem {
     label: string;
@@ -184,30 +185,30 @@ interface NavSection {
 const navSections: NavSection[] = [
     {
         items: [
-            { label: "Overview",    href: "/account/dashboard",  icon: DashboardIcon   },
-            { label: "Properties",  href: "/account/properties", icon: PropertiesIcon  },
-            { label: "Listings",    href: "/account/listings",   icon: ListingsIcon    },
+            { label: "Overview", href: "/account/dashboard", icon: DashboardIcon },
+            { label: "Properties", href: "/account/properties", icon: PropertiesIcon },
+            { label: "Listings", href: "/account/listings", icon: ListingsIcon },
         ],
     },
     {
         title: "Tenants",
         items: [
-            { label: "All Tenants",   href: "/account/tenants",              icon: TenantsIcon      },
-            { label: "Applications",  href: "/account/tenants/applications", icon: ApplicationsIcon },
-            { label: "Move-ins",      href: "/account/tenants/move-ins",     icon: MoveInIcon       },
-            { label: "Notices",       href: "/account/tenants/notices",      icon: NoticesIcon      },
-            { label: "Leases",        href: "/account/leases",               icon: LeasesIcon       },
+            { label: "All Tenants", href: "/account/tenants", icon: TenantsIcon },
+            { label: "Applications", href: "/account/tenants/applications", icon: ApplicationsIcon },
+            { label: "Move-ins", href: "/account/tenants/move-ins", icon: MoveInIcon },
+            { label: "Notices", href: "/account/tenants/notices", icon: NoticesIcon },
+            { label: "Leases", href: "/account/leases", icon: LeasesIcon },
         ],
     },
     {
         items: [
-            { label: "Payments",    href: "/account/payments",    icon: PaymentsIcon    },
-            { label: "Invoices",    href: "/account/invoices",    icon: InvoicesIcon    },
-            { label: "Quotations",  href: "/account/quotations",  icon: QuotationsIcon  },
+            { label: "Payments", href: "/account/payments", icon: PaymentsIcon },
+            { label: "Invoices", href: "/account/invoices", icon: InvoicesIcon },
+            { label: "Quotations", href: "/account/quotations", icon: QuotationsIcon },
             { label: "Maintenance", href: "/account/maintenance", icon: MaintenanceIcon },
-            { label: "Tasks",       href: "/account/tasks",       icon: TasksIcon       },
-            { label: "Broadcasts",  href: "/account/broadcasts",  icon: BroadcastsIcon  },
-            { label: "Reports",     href: "/account/reports",     icon: ReportsIcon     },
+            { label: "Tasks", href: "/account/tasks", icon: TasksIcon },
+            { label: "Broadcasts", href: "/account/broadcasts", icon: BroadcastsIcon },
+            { label: "Reports", href: "/account/reports", icon: ReportsIcon },
         ],
     },
 ];
@@ -216,33 +217,51 @@ const bottomNav: NavItem[] = [
     { label: "Settings", href: "/account/settings", icon: SettingsIcon },
 ];
 
-// ─── Component ────────────────────────────────────────────────────────────────
+// Component 
 
 export default function DashboardSidebar() {
     const pathname = usePathname();
+    const { isMobileNavOpen, closeMobileNav } = useDashboardNav();
 
-    const isActive = (href: string) =>
-        href === "/account/dashboard"
-            ? pathname === href
-            : pathname === href || pathname.startsWith(`${href}/`);
+    const isActive = (href: string) => {
+        if (href === "/account/dashboard") {
+            return pathname === "/account/dashboard";
+        }
+        return pathname === href || pathname.startsWith(`${href}/`);
+    };
 
-    return (
-        <aside className="flex h-full w-[230px] shrink-0 flex-col border-r border-neutral-200 bg-white">
+    const renderNavContent = (isMobile: boolean = false) => (
+        <>
             {/* Brand */}
-            <div className="flex h-[68px] shrink-0 items-center gap-2.5 border-b border-neutral-200 px-5">
-                <Link href="/" aria-label={`${BRAND_NAME} home`} className="flex items-center gap-2.5">
-                <Image
-                    src="/logoassets/jadelogo.png"
-                    alt=""
-                    width={40}
-                    height={40}
-                    className="size-9 object-contain"
-                />
-                <span className="flex flex-col leading-none">
-                    <span className="font-outfit text-[16px] font-semibold text-ink">{BRAND_WORDMARK.primary}</span>
-                    <span className="mt-0.5 text-[9px] font-medium uppercase tracking-[0.18em] text-neutral-500">{BRAND_WORDMARK.secondary}</span>
-                </span>
+            <div className="flex h-[68px] shrink-0 items-center justify-between border-b border-neutral-200 px-5">
+                <Link
+                    href="/"
+                    onClick={isMobile ? closeMobileNav : undefined}
+                    aria-label={`${BRAND_NAME} home`}
+                    className="flex items-center gap-2.5"
+                >
+                    <Image
+                        src="/logoassets/jadelogo.png"
+                        alt=""
+                        width={40}
+                        height={40}
+                        className="size-9 object-contain"
+                    />
+                    <span className="flex flex-col leading-none">
+                        <span className="font-outfit text-[16px] font-semibold text-ink">{BRAND_WORDMARK.primary}</span>
+                        <span className="mt-0.5 text-[9px] font-medium uppercase tracking-[0.18em] text-neutral-500">{BRAND_WORDMARK.secondary}</span>
+                    </span>
                 </Link>
+                {isMobile && (
+                    <button
+                        type="button"
+                        onClick={closeMobileNav}
+                        aria-label="Close navigation"
+                        className="flex size-8 items-center justify-center rounded-lg text-neutral-400 hover:bg-neutral-100 hover:text-ink"
+                    >
+                        ✕
+                    </button>
+                )}
             </div>
 
             {/* Main nav */}
@@ -255,11 +274,9 @@ export default function DashboardSidebar() {
                                 <li className="pt-3">
                                     <div className={`mb-1 ${section.title ? "flex items-center gap-2" : "border-t border-neutral-100"}`}>
                                         {section.title && (
-                                            <>
-                                                <span className="px-3 text-[10px] font-semibold uppercase tracking-[0.1em] text-neutral-400">
-                                                    {section.title}
-                                                </span>
-                                            </>
+                                            <span className="px-3 text-[10px] font-semibold uppercase tracking-[0.1em] text-neutral-400">
+                                                {section.title}
+                                            </span>
                                         )}
                                     </div>
                                 </li>
@@ -270,12 +287,12 @@ export default function DashboardSidebar() {
                                     <li key={label}>
                                         <Link
                                             href={href}
+                                            onClick={isMobile ? closeMobileNav : undefined}
                                             aria-current={active ? "page" : undefined}
-                                            className={`group flex items-center gap-3 rounded-md px-3 py-2.5 text-[13px] font-medium transition-colors ${
-                                                active
+                                            className={`group flex items-center gap-3 rounded-md px-3 py-2.5 text-[13px] font-medium transition-colors ${active
                                                     ? "bg-jade-700 text-white"
                                                     : "text-neutral-600 hover:bg-neutral-100 hover:text-ink"
-                                            }`}
+                                                }`}
                                         >
                                             <Icon />
                                             {label}
@@ -297,12 +314,12 @@ export default function DashboardSidebar() {
                             <li key={label}>
                                 <Link
                                     href={href}
+                                    onClick={isMobile ? closeMobileNav : undefined}
                                     aria-current={active ? "page" : undefined}
-                                    className={`flex items-center gap-3 rounded-md px-3 py-2.5 text-[13px] font-medium transition-colors ${
-                                        active
+                                    className={`flex items-center gap-3 rounded-md px-3 py-2.5 text-[13px] font-medium transition-colors ${active
                                             ? "bg-jade-700 text-white"
                                             : "text-neutral-600 hover:bg-neutral-100 hover:text-ink"
-                                    }`}
+                                        }`}
                                 >
                                     <Icon />
                                     {label}
@@ -321,6 +338,34 @@ export default function DashboardSidebar() {
                     </li>
                 </ul>
             </div>
-        </aside>
+        </>
+    );
+
+    return (
+        <>
+            {/* Desktop static sidebar */}
+            <aside className="hidden h-full w-[230px] shrink-0 flex-col border-r border-neutral-200 bg-white lg:flex">
+                {renderNavContent(false)}
+            </aside>
+
+            {/* Mobile slide-out drawer */}
+            {isMobileNavOpen && (
+                <div className="fixed inset-0 z-50 lg:hidden">
+                    <div
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+                        onClick={closeMobileNav}
+                        aria-hidden="true"
+                    />
+                    <aside
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Mobile Navigation Drawer"
+                        className="relative z-10 flex h-full w-[260px] max-w-[80vw] flex-col border-r border-neutral-200 bg-white shadow-2xl"
+                    >
+                        {renderNavContent(true)}
+                    </aside>
+                </div>
+            )}
+        </>
     );
 }

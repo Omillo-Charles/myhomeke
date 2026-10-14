@@ -48,17 +48,17 @@ export default function DashboardRevenueChart() {
 
             {/* KPI strip */}
             <div className="grid grid-cols-3 divide-x divide-neutral-100 border-b border-neutral-100">
-                <div className="px-5 py-3">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.08em] text-neutral-400">6-Month Collected</p>
-                    <p className="mt-1 font-outfit text-base font-bold text-ink">KSh {formatK(totalCollected)}</p>
+                <div className="px-3 py-2.5 sm:px-5 sm:py-3">
+                    <p className="text-[9px] font-medium uppercase tracking-[0.08em] text-neutral-400 sm:text-[10px]">6-Month Collected</p>
+                    <p className="mt-1 font-outfit text-sm font-bold text-ink sm:text-base">KSh {formatK(totalCollected)}</p>
                 </div>
-                <div className="px-5 py-3">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.08em] text-neutral-400">Total Outstanding</p>
-                    <p className="mt-1 font-outfit text-base font-bold text-danger">KSh {formatK(totalOutstanding)}</p>
+                <div className="px-3 py-2.5 sm:px-5 sm:py-3">
+                    <p className="text-[9px] font-medium uppercase tracking-[0.08em] text-neutral-400 sm:text-[10px]">Total Outstanding</p>
+                    <p className="mt-1 font-outfit text-sm font-bold text-danger sm:text-base">KSh {formatK(totalOutstanding)}</p>
                 </div>
-                <div className="px-5 py-3">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.08em] text-neutral-400">MoM Change</p>
-                    <p className={`mt-1 font-outfit text-base font-bold ${momUp ? "text-success" : "text-danger"}`}>
+                <div className="px-3 py-2.5 sm:px-5 sm:py-3">
+                    <p className="text-[9px] font-medium uppercase tracking-[0.08em] text-neutral-400 sm:text-[10px]">MoM Change</p>
+                    <p className={`mt-1 font-outfit text-sm font-bold sm:text-base ${momUp ? "text-success" : "text-danger"}`}>
                         {momUp ? "+" : ""}{momChange}%
                     </p>
                 </div>
