@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Image from "next/image";
 import { useDashboardNav } from "@/components/dashboard/DashboardNavContext";
 
@@ -55,17 +55,25 @@ function formatDate(d: Date) {
     }).format(d);
 }
 
+function subscribe() {
+    return () => { };
+}
+
+function getClientDate() {
+    return formatDate(new Date());
+}
+
+function getServerDate() {
+    return null;
+}
+
 interface DashboardHeaderProps {
     title?: string;
 }
 
 export default function DashboardHeader({ title = "Overview" }: DashboardHeaderProps = {}) {
-    const [date, setDate] = useState<string | null>(null);
+    const date = useSyncExternalStore(subscribe, getClientDate, getServerDate);
     const { toggleMobileNav } = useDashboardNav();
-
-    useEffect(() => {
-        setDate(formatDate(new Date()));
-    }, []);
 
     return (
         <header className="flex h-[68px] shrink-0 items-center justify-between border-b border-neutral-200 bg-white px-4 sm:px-6 lg:px-8">
