@@ -12,7 +12,7 @@ export default function PaymentsPage() {
     return (
         <>
             <DashboardHeader title="Payments" />
-            <main className="flex-1 overflow-y-auto px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7">
+            <main className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7">
                 <PaymentsView />
             </main>
         </>
