@@ -1,0 +1,21 @@
+name: Deploy to Enhance
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout Code
+    use: actions/checkout@v5
+
+  - name: Set up Node Environment
+    use: actions/setup-node@v3
+    with:
+      node-version: 20
+
+  - name: install dependencies
+    run: npm install
