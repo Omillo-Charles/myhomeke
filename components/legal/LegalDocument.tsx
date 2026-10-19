@@ -43,8 +43,8 @@ export default function LegalDocument({
                 <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-navy-900/60 to-transparent" />
                 <div className="mx-auto w-full max-w-[1440px] px-5 pb-10 pt-28 sm:px-8 sm:pb-12 lg:px-14 lg:pb-14">
                     <div className="max-w-3xl">
-                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-normal text-gold-200 md:tracking-[0.16em]">{BRAND_NAME} · Legal</p>
-                        <h1 className="font-outfit text-4xl font-medium leading-tight tracking-normal text-white md:tracking-[-0.035em] sm:text-5xl lg:text-6xl">{title}</h1>
+                        <p className="mb-3 text-[10px] font-semibold uppercase text-gold-200">{BRAND_NAME} · Legal</p>
+                        <h1 className="font-outfit text-4xl font-medium leading-tight text-white sm:text-5xl lg:text-6xl">{title}</h1>
                         <p className="mt-3 text-sm text-white/85 sm:text-base">{subtitle}</p>
                         <p className="mt-5 text-xs text-white/65">Last updated: {lastUpdated}</p>
                     </div>
@@ -77,8 +77,8 @@ export default function LegalDocument({
                     <div className="mt-8 divide-y divide-[#E9ECF2]">
                         {sections.map(({ title: sectionTitle, paragraphs }, index) => (
                             <section key={sectionTitle} id={sectionId(sectionTitle)} className="scroll-mt-28 py-7 first:pt-0 last:pb-0">
-                                <h2 className="flex min-w-0 items-start gap-3 font-outfit text-xl font-semibold tracking-normal text-navy-900 md:tracking-[-0.015em] sm:text-2xl">
-                                    <span className="mt-1 shrink-0 text-xs font-medium tracking-normal text-gold-700 md:tracking-[0.08em]">{String(index + 1).padStart(2, "0")}</span>
+                                <h2 className="flex min-w-0 items-start gap-3 font-outfit text-xl font-semibold text-navy-900 sm:text-2xl">
+                                    <span className="mt-1 shrink-0 text-xs font-medium text-gold-700">{String(index + 1).padStart(2, "0")}</span>
                                     <span className="min-w-0 break-words">{sectionTitle}</span>
                                 </h2>
                                 {paragraphs.map((paragraph) => (

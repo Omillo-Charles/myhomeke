@@ -119,7 +119,7 @@ export default function FeaturedProperties() {
 
                             <div className="p-4 sm:p-5">
                                 <p className="text-xs font-medium text-neutral-500">{property.location}</p>
-                                <h3 className="mt-1.5 font-outfit text-lg font-semibold tracking-normal text-ink md:tracking-[-0.015em]">
+                                <h3 className="mt-1.5 font-outfit text-lg font-semibold tracking-normal text-ink">
                                     <a href="/properties" className="transition-colors hover:text-jade-700">{property.name}</a>
                                 </h3>
                                 <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-neutral-200 pb-4 text-xs text-neutral-600">

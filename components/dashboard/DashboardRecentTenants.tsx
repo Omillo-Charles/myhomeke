@@ -15,9 +15,9 @@ interface Tenant {
 }
 
 const statusConfig: Record<LeaseStatus, { label: string; color: string; bg: string; dot: string }> = {
-    active:   { label: "Active",    color: "text-success", bg: "bg-success/10",  dot: "bg-success"  },
-    expiring: { label: "Expiring",  color: "text-warning", bg: "bg-warning/10",  dot: "bg-warning"  },
-    overdue:  { label: "Overdue",   color: "text-danger",  bg: "bg-danger/10",   dot: "bg-danger"   },
+    active: { label: "Active", color: "text-success", bg: "bg-success/10", dot: "bg-success" },
+    expiring: { label: "Expiring", color: "text-warning", bg: "bg-warning/10", dot: "bg-warning" },
+    overdue: { label: "Overdue", color: "text-danger", bg: "bg-danger/10", dot: "bg-danger" },
 };
 
 const tenants: Tenant[] = [

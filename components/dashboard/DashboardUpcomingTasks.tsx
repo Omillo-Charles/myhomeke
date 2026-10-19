@@ -16,16 +16,16 @@ interface UpcomingTask {
 }
 
 const typeConfig: Record<TaskType, { icon: () => React.ReactElement; color: string; bg: string }> = {
-    lease:       { icon: LeaseIcon,       color: "text-navy-700",  bg: "bg-navy-100"   },
-    rent:        { icon: RentIcon,        color: "text-jade-700",  bg: "bg-jade-100"   },
-    inspection:  { icon: InspectionIcon,  color: "text-gold-700",  bg: "bg-gold-100"   },
-    maintenance: { icon: WrenchIcon,      color: "text-warning",   bg: "bg-warning/10" },
+    lease: { icon: LeaseIcon, color: "text-navy-700", bg: "bg-navy-100" },
+    rent: { icon: RentIcon, color: "text-jade-700", bg: "bg-jade-100" },
+    inspection: { icon: InspectionIcon, color: "text-gold-700", bg: "bg-gold-100" },
+    maintenance: { icon: WrenchIcon, color: "text-warning", bg: "bg-warning/10" },
 };
 
 const priorityConfig: Record<TaskPriority, { label: string; color: string; bg: string }> = {
-    high:   { label: "High",   color: "text-danger",  bg: "bg-danger/10"  },
+    high: { label: "High", color: "text-danger", bg: "bg-danger/10" },
     medium: { label: "Medium", color: "text-warning", bg: "bg-warning/10" },
-    low:    { label: "Low",    color: "text-success", bg: "bg-success/10" },
+    low: { label: "Low", color: "text-success", bg: "bg-success/10" },
 };
 
 function LeaseIcon() {
@@ -119,14 +119,13 @@ const tasks: UpcomingTask[] = [
 ] as const;
 
 function DaysLeftBadge({ days }: { days: number }) {
-    const urgent   = days <= 7;
+    const urgent = days <= 7;
     const moderate = days <= 21;
     return (
-        <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${
-            urgent   ? "bg-danger/10 text-danger"  :
-            moderate ? "bg-warning/10 text-warning" :
-                       "bg-neutral-100 text-neutral-600"
-        }`}>
+        <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${urgent ? "bg-danger/10 text-danger" :
+                moderate ? "bg-warning/10 text-warning" :
+                    "bg-neutral-100 text-neutral-600"
+            }`}>
             {days}d left
         </span>
     );

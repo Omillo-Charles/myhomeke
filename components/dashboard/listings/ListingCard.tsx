@@ -56,12 +56,12 @@ export default function ListingCard({ listing, onUnlist }: ListingCardProps) {
                 {/* Top: type badge + status badge */}
                 <div className="absolute inset-x-3 top-3 flex items-center justify-between gap-2">
                     <span
-                        className={`rounded-md px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider shadow-sm backdrop-blur-sm ${TYPE_BADGE[listing.type] ?? "bg-white/90 text-ink"}`}
+                        className={`rounded-md px-2.5 py-1 text-[10px] font-bold uppercase shadow-sm backdrop-blur-sm ${TYPE_BADGE[listing.type] ?? "bg-white/90 text-ink"}`}
                     >
                         {listing.type}
                     </span>
                     <span
-                        className={`rounded-md px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider shadow-sm backdrop-blur-sm ${listingStatusColor(listing.status)}`}
+                        className={`rounded-md px-2.5 py-1 text-[10px] font-bold uppercase shadow-sm backdrop-blur-sm ${listingStatusColor(listing.status)}`}
                     >
                         {listingStatusLabel(listing.status)}
                     </span>
@@ -122,13 +122,12 @@ export default function ListingCard({ listing, onUnlist }: ListingCardProps) {
                         aria-valuemax={100}
                     >
                         <div
-                            className={`h-full rounded-full transition-all duration-300 ${
-                                occupancyPct >= 90
+                            className={`h-full rounded-full transition-all duration-300 ${occupancyPct >= 90
                                     ? "bg-jade-700"
                                     : occupancyPct >= 70
-                                    ? "bg-jade-500"
-                                    : "bg-warning"
-                            }`}
+                                        ? "bg-jade-500"
+                                        : "bg-warning"
+                                }`}
                             style={{ width: `${occupancyPct}%` }}
                         />
                     </div>

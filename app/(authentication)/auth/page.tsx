@@ -27,8 +27,8 @@ export default function AuthPage() {
                 <Link href="/" className="inline-flex w-fit items-center gap-2.5" aria-label={`${BRAND_NAME} home`}>
                     <Image src="/logoassets/jadelogo.png" alt="" width={56} height={56} priority className="size-11 object-contain" />
                     <span className="flex flex-col leading-none">
-                        <span className="font-outfit text-lg font-semibold tracking-normal md:tracking-[0.01em]">{BRAND_WORDMARK.primary}</span>
-                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/80 md:tracking-[0.18em]">{BRAND_WORDMARK.secondary}</span>
+                        <span className="font-outfit text-lg font-semibold">{BRAND_WORDMARK.primary}</span>
+                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/80">{BRAND_WORDMARK.secondary}</span>
                     </span>
                 </Link>
 

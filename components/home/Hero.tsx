@@ -33,7 +33,7 @@ export default function Hero() {
 
             <div className="mx-auto w-full max-w-[1440px] px-5 pb-40 sm:px-8 sm:pb-44 lg:px-14 lg:pb-48">
                 <div className="max-w-[700px]">
-                    <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-normal text-gold-200 sm:text-xs md:tracking-[0.2em]">
+                    <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase text-gold-200 sm:text-xs">
                         <span className="h-px w-8 bg-gold-300" />
                         Find a home with ease!
                     </p>

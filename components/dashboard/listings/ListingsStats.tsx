@@ -21,7 +21,7 @@ function StatCard({
 }) {
     return (
         <div className="flex flex-col gap-1 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+            <p className="text-[11px] font-semibold uppercase text-neutral-400">
                 {label}
             </p>
             <p className={`font-outfit text-xl font-bold ${accent ?? "text-ink"}`}>

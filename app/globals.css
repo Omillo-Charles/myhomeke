@@ -149,6 +149,12 @@ body {
   font-family: var(--font-outfit-local), sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  letter-spacing: 0 !important;
+}
+
 ::selection {
   background: var(--gold-200);
   color: var(--foreground);

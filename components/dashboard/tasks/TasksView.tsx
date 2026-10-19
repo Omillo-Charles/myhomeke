@@ -63,7 +63,7 @@ function StatCard({ label, value, note, color }: { label: string; value: number;
     return (
         <article className="rounded-xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-5">
             <p className="text-xs font-medium text-neutral-500">{label}</p>
-            <p className={`mt-2 font-outfit text-2xl font-bold tracking-tight ${color}`}>{value}</p>
+            <p className={`mt-2 font-outfit text-2xl font-bold ${color}`}>{value}</p>
             <p className="mt-1 text-[11px] text-neutral-400">{note}</p>
         </article>
     );
@@ -172,8 +172,8 @@ export default function TasksView() {
         <div className="space-y-6 pb-8">
             <section className="flex flex-col gap-4 rounded-2xl bg-jade-800 px-5 py-6 text-white shadow-sm sm:flex-row sm:items-center sm:justify-between sm:px-7">
                 <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-jade-200">Owner planner</p>
-                    <h2 className="mt-1 font-outfit text-2xl font-bold tracking-tight sm:text-3xl">Tasks & reminders</h2>
+                    <p className="text-[10px] font-bold uppercase text-jade-200">Owner planner</p>
+                    <h2 className="mt-1 font-outfit text-2xl font-bold sm:text-3xl">Tasks & reminders</h2>
                     <p className="mt-1.5 max-w-xl text-xs leading-5 text-jade-100 sm:text-sm">Plan property work, assign follow-ups, and keep important dates in one place.</p>
                 </div>
                 <button type="button" onClick={() => setActiveTask("new")} className="inline-flex items-center justify-center gap-2 self-start rounded-lg bg-gold-400 px-4 py-2.5 text-xs font-semibold text-jade-950 shadow-sm transition hover:bg-gold-300 sm:self-center">

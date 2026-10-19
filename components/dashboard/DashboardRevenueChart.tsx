@@ -7,12 +7,12 @@ interface MonthData {
 }
 
 const data: MonthData[] = [
-    { month: "Jul", collected: 720,  outstanding: 80  },
-    { month: "Aug", collected: 810,  outstanding: 65  },
-    { month: "Sep", collected: 760,  outstanding: 110 },
-    { month: "Oct", collected: 890,  outstanding: 55  },
-    { month: "Nov", collected: 830,  outstanding: 95  },
-    { month: "Dec", collected: 987,  outstanding: 124 },
+    { month: "Jul", collected: 720, outstanding: 80 },
+    { month: "Aug", collected: 810, outstanding: 65 },
+    { month: "Sep", collected: 760, outstanding: 110 },
+    { month: "Oct", collected: 890, outstanding: 55 },
+    { month: "Nov", collected: 830, outstanding: 95 },
+    { month: "Dec", collected: 987, outstanding: 124 },
 ];
 
 const MAX_VALUE = 1200; // axis ceiling in thousands
@@ -26,12 +26,12 @@ function formatK(v: number) {
 }
 
 export default function DashboardRevenueChart() {
-    const totalCollected  = data.reduce((s, d) => s + d.collected, 0);
+    const totalCollected = data.reduce((s, d) => s + d.collected, 0);
     const totalOutstanding = data.reduce((s, d) => s + d.outstanding, 0);
     const latestMonth = data[data.length - 1];
-    const prevMonth   = data[data.length - 2];
-    const momChange   = (((latestMonth.collected - prevMonth.collected) / prevMonth.collected) * 100).toFixed(1);
-    const momUp       = latestMonth.collected >= prevMonth.collected;
+    const prevMonth = data[data.length - 2];
+    const momChange = (((latestMonth.collected - prevMonth.collected) / prevMonth.collected) * 100).toFixed(1);
+    const momUp = latestMonth.collected >= prevMonth.collected;
 
     return (
         <section aria-label="Revenue overview" className="rounded-xl border border-neutral-200 bg-white shadow-sm">

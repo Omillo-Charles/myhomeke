@@ -40,7 +40,7 @@ export default function SettingsNotifications() {
             </div>
 
             <div className="rounded-xl border border-neutral-200 bg-white p-5">
-                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-neutral-400">Email Notifications</p>
+                <p className="mb-3 text-xs font-bold uppercase text-neutral-400">Email Notifications</p>
                 <Toggle label="Rent Payments" description="Notify me when a tenant makes or misses a payment." enabled={rent} onChange={setRent} />
                 <Toggle label="Maintenance Requests" description="Notify me when a new maintenance ticket is opened." enabled={maintenance} onChange={setMaintenance} />
                 <Toggle label="Lease Renewals & Expirations" description="Alerts 30, 14, and 7 days before a lease expires." enabled={lease} onChange={setLease} />
@@ -50,7 +50,7 @@ export default function SettingsNotifications() {
             </div>
 
             <div className="rounded-xl border border-neutral-200 bg-white p-5">
-                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-neutral-400">SMS Notifications</p>
+                <p className="mb-3 text-xs font-bold uppercase text-neutral-400">SMS Notifications</p>
                 <Toggle label="Rent Reminders (SMS)" description="Send SMS reminders to you when rent is due or overdue." enabled={smsRent} onChange={setSmsRent} />
                 <Toggle label="Maintenance Alerts (SMS)" description="Receive an SMS when an urgent maintenance ticket is raised." enabled={smsMaint} onChange={setSmsMaint} />
             </div>

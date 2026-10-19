@@ -142,13 +142,12 @@ export default function PropertiesTable({
                                             </div>
                                             <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-neutral-200">
                                                 <div
-                                                    className={`h-full rounded-full ${
-                                                        occupancyPct >= 90
+                                                    className={`h-full rounded-full ${occupancyPct >= 90
                                                             ? "bg-jade-700"
                                                             : occupancyPct >= 70
-                                                            ? "bg-jade-500"
-                                                            : "bg-warning"
-                                                    }`}
+                                                                ? "bg-jade-500"
+                                                                : "bg-warning"
+                                                        }`}
                                                     style={{ width: `${occupancyPct}%` }}
                                                 />
                                             </div>

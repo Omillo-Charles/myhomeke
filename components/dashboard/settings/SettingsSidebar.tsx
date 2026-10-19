@@ -213,8 +213,8 @@ export default function SettingsSidebar({
                                                     aria-pressed={active}
                                                     onClick={() => onSectionChange(section)}
                                                     className={`flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-[13px] font-medium transition-colors ${active
-                                                            ? "bg-jade-700 text-white"
-                                                            : "text-neutral-600 hover:bg-neutral-100 hover:text-ink"
+                                                        ? "bg-jade-700 text-white"
+                                                        : "text-neutral-600 hover:bg-neutral-100 hover:text-ink"
                                                         }`}
                                                 >
                                                     <Icon />
@@ -242,8 +242,8 @@ export default function SettingsSidebar({
                                 aria-pressed={active}
                                 onClick={() => onSectionChange(section)}
                                 className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold whitespace-nowrap transition-colors ${active
-                                        ? "border-jade-600 bg-jade-700 text-white"
-                                        : "border-neutral-200 bg-white text-neutral-600 hover:border-jade-300 hover:text-jade-700"
+                                    ? "border-jade-600 bg-jade-700 text-white"
+                                    : "border-neutral-200 bg-white text-neutral-600 hover:border-jade-300 hover:text-jade-700"
                                     }`}
                             >
                                 <Icon />

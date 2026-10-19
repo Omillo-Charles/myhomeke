@@ -8,7 +8,7 @@ const inputCls =
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
     return (
         <div className="rounded-xl border border-neutral-200 bg-white p-5 space-y-4">
-            <p className="text-xs font-bold uppercase tracking-wider text-neutral-400">{title}</p>
+            <p className="text-xs font-bold uppercase text-neutral-400">{title}</p>
             {children}
         </div>
     );

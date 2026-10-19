@@ -64,8 +64,8 @@ export default function Navbar() {
                         className="size-10 object-contain transition-transform group-hover:scale-105 sm:size-12"
                     />
                     <span className="flex flex-col leading-none">
-                        <span className="font-outfit text-[17px] font-semibold tracking-normal md:tracking-[0.01em] sm:text-[19px]">{BRAND_WORDMARK.primary}</span>
-                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/75 md:tracking-[0.18em] sm:text-[10px]">{BRAND_WORDMARK.secondary}</span>
+                        <span className="font-outfit text-[17px] font-semibold tracking-normal sm:text-[19px]">{BRAND_WORDMARK.primary}</span>
+                        <span className="mt-1 text-[9px] font-medium uppercase tracking-normal text-white/75 sm:text-[10px]">{BRAND_WORDMARK.secondary}</span>
                     </span>
                 </Link>
 

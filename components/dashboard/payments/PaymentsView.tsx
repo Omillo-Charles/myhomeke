@@ -10,11 +10,11 @@ import ReceiptModal from "./ReceiptModal";
 type ChannelFilter = "All channels" | PaymentChannel;
 type StatusFilter = "All statuses" | PaymentStatus;
 
-const channels: { name: PaymentChannel; monogram: string; description: string; tone: string }[] = [
-    { name: "M-PESA", monogram: "M", description: "Mobile money", tone: "bg-[#e6f4ec] text-[#16834a]" },
-    { name: "Airtel Money", monogram: "A", description: "Mobile money", tone: "bg-[#fff0f0] text-[#e32932]" },
-    { name: "Bank", monogram: "B", description: "All bank transfers", tone: "bg-[#eaf0f8] text-[#315b8a]" },
-    { name: "PayPal", monogram: "P", description: "International", tone: "bg-[#eaf1ff] text-[#1769aa]" },
+const channels: { name: PaymentChannel; description: string; tone: string }[] = [
+    { name: "M-PESA", description: "Mobile money", tone: "bg-[#e6f4ec]" },
+    { name: "Airtel Money", description: "Mobile money", tone: "bg-[#fff0f0]" },
+    { name: "Bank", description: "All bank transfers", tone: "bg-[#eaf0f8]" },
+    { name: "PayPal", description: "International", tone: "bg-[#eaf1ff]" },
 ];
 
 const statusStyles: Record<PaymentStatus, string> = {
@@ -70,6 +70,44 @@ function ReceiptIcon() {
     );
 }
 
+function PaymentChannelIcon({ channel }: { channel: PaymentChannel }) {
+    if (channel === "M-PESA") {
+        return (
+            <svg viewBox="0 0 48 24" className="h-6 w-9" aria-hidden="true">
+                <text x="1" y="18" fill="#e32932" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="700">M</text>
+                <text x="16" y="18" fill="#16834a" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700">PESA</text>
+            </svg>
+        );
+    }
+
+    if (channel === "Airtel Money") {
+        return (
+            <svg viewBox="0 0 24 24" fill="none" className="size-6" aria-hidden="true">
+                <path d="M12.4 2.4c-3.8 2.2-7.2 6.8-7.7 10.5-.3 2.2 1.2 3.7 3.1 3.4 2.9-.5 7.1-5.2 9.3-9.4 1.2-2.3.4-4.1-1.5-4.4-1-.2-2.1-.1-3.2-.1Z" fill="#e32932" />
+                <path d="M8.2 18.2c2.7.8 6.3-.4 8.8-2.6" stroke="#e32932" strokeWidth="2.2" strokeLinecap="round" />
+                <circle cx="18.7" cy="5.3" r="1.4" fill="#e32932" />
+            </svg>
+        );
+    }
+
+    if (channel === "Bank") {
+        return (
+            <svg viewBox="0 0 24 24" fill="none" className="size-6 text-[#315b8a]" aria-hidden="true">
+                <path d="m3 9 9-5 9 5v1H3V9Z" fill="currentColor" />
+                <path d="M5 11v7m4-7v7m6-7v7m4-7v7M3 20h18M2 22h20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        );
+    }
+
+    return (
+        <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
+            <path d="M8.4 3.2H15c3.1 0 4.8 1.7 4.2 4.5-.6 3-2.6 4.7-5.8 4.7h-2.2l-.8 4.4H6.8L8.4 3.2Z" fill="#003087" />
+            <path d="M5.4 6.1h6.2c3.1 0 4.7 1.6 4.2 4.3-.6 3-2.6 4.7-5.8 4.7H7.8L7 19.5H3.7L5.4 6.1Z" fill="#009cde" />
+            <path d="M7 15.1h3.1c3.2 0 5.2-1.7 5.8-4.7.1-.4.1-.8.1-1.1 1.1.7 1.5 1.9 1.1 3.6-.6 3-2.6 4.7-5.8 4.7H9.1l-.4 2H5.4L7 15.1Z" fill="#012169" />
+        </svg>
+    );
+}
+
 function StatCard({ label, value, note, icon, accent }: { label: string; value: string; note: string; icon: string; accent: string }) {
     return (
         <article className="rounded-xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-5">
@@ -99,7 +137,9 @@ function ChannelCard({ channel, amount, count, active, onClick }: {
             aria-pressed={active}
             className={`flex w-full items-center gap-3 rounded-xl border bg-white p-4 text-left shadow-sm transition hover:border-jade-300 hover:shadow-md ${active ? "border-jade-600 ring-2 ring-jade-600/10" : "border-neutral-200"}`}
         >
-            <span className={`flex size-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold ${channel.tone}`} aria-hidden="true">{channel.monogram}</span>
+            <span className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${channel.tone}`}>
+                <PaymentChannelIcon channel={channel.name} />
+            </span>
             <span className="min-w-0 flex-1">
                 <span className="block text-sm font-semibold text-ink">{channel.name === "Bank" ? "Bank transfers" : channel.name}</span>
                 <span className="mt-0.5 block text-[11px] text-neutral-400">{channel.description} · {count} payments</span>
@@ -334,7 +374,9 @@ export default function PaymentsView() {
                                             </td>
                                             <td className="px-4 py-3.5">
                                                 <div className="flex items-center gap-2.5">
-                                                    <span className={`flex size-7 shrink-0 items-center justify-center rounded-lg text-[10px] font-bold ${channel.tone}`} aria-hidden="true">{channel.monogram}</span>
+                                                    <span className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${channel.tone}`}>
+                                                        <PaymentChannelIcon channel={channel.name} />
+                                                    </span>
                                                     <span>
                                                         <span className="block font-medium text-neutral-700">{payment.channel === "Bank" ? "Bank transfer" : payment.channel}</span>
                                                         <span className="mt-0.5 block text-[10px] text-neutral-400">{payment.paymentDetail}</span>
