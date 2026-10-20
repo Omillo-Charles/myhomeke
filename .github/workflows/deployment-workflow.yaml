@@ -18,6 +18,18 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd public_html/myhomeke
-            git pull origin main
-            npm install
+            # Load NVM environment variables to make npm available
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # Navigate to project directory
+            cd public_html/myhomeke[cite: 6]
+
+            # Pull latest changes[cite: 6]
+            git pull origin main[cite: 6]
+
+            # Install production dependencies[cite: 6]
+            npm install[cite: 6]
+
+            # Touch entry point to reload Node process in Enhance
+            touch index.js
