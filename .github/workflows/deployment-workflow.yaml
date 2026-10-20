@@ -18,9 +18,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd public_html/omytechAPI
+            cd public_html/myhomeke
             git pull origin main
             npm install
-            npx prisma generate
-            # Restart process trigger file if nodemon/app runner is watching
-            touch app.js
+            npm run dev
